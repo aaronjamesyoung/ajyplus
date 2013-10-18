@@ -1,0 +1,33 @@
+html, body { font-size: $base-font-size; line-height: $base-line-height; font-family: $body-font-family;
+  color: $body-font-color; }
+
+p { margin-top: 0; margin-bottom: $ajy-spacing; }
+
+//Headers
+h1, h2, h3, h4, h5, h6 { margin: 0 0 $ajy-spacing 0;
+    font-family: $header-font-family; font-weight: $header-font-weight; color: $header-font-color; 
+    text-rendering: optimizeLegibility; }
+h1 { font-size: $h1-font-size; line-height: $h1-font-size * 1.1; }
+h2 { font-size: $h2-font-size; line-height: $h2-font-size * 1.1; }
+h3 { font-size: $h3-font-size; line-height: $h3-font-size * 1.1; }
+h4 { font-size: $h4-font-size; line-height: $h4-font-size * 1.1; }
+h5, h6 { font-size: $h5-font-size; line-height: $h5-font-size * 1.1; color: $h6-font-color; }
+h6 { font-style: italic; }
+
+//links
+a { color: $blue; text-decoration: none; }
+a:hover { color: darken($blue, 25); }
+a:visited { color: $purple; }
+a:active { color: $red; }
+
+//lists
+ul, ol { margin: 0 0 $ajy-spacing 0; padding: 0; list-style-position: inside; }
+ul li ul, ul li ol, ol li ul, ol li ol { margin: 0 0 0 $ajy-spacing; }
+
+//blockquotes
+blockquote { margin: 0 0 1.5rem 0; padding: 0 1rem 0 1.5rem; color: $blockquote-color; }
+blockquote cite { display: block; font-size: 0.75rem; }
+blockquote cite:before { content: "\2014 \0020"; }
+
+//Todo
+// dl, vcard, abbr, acronym, small, code, pre

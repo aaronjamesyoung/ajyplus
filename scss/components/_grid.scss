@@ -1,0 +1,18 @@
+//use on grid containers
+@mixin grid-wrap($padding: 'no') { max-width: $row-width; margin: 0 auto;
+  @if $padding == 'side' {
+    padding: 0 $ajy-spacing / 2;
+  } @if $padding == 'all' {
+    padding: $ajy-spacing / 2;
+  }
+  @include pie-clearfix;
+}
+
+//For grid columns. Ex: "@include grid-col(33.33%, left);"
+@mixin grid-col($wid, $dir: left, $padding: 'side') { width: $wid; float: $dir;
+  @if $padding == 'side' {
+    padding: 0 $ajy-spacing / 2;
+  } @if $padding == 'all' {
+    padding: $ajy-spacing / 2;
+  } //padding can also be 'no'
+}

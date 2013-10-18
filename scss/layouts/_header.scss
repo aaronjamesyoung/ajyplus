@@ -1,0 +1,6 @@
+.site-header { @include grid-wrap(no);
+  .site-branding {
+    .site-title {}
+    .site-description{}
+  }
+}

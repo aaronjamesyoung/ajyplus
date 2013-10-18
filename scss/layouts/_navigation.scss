@@ -1,0 +1,88 @@
+@media only screen {
+  //body classes... we push the body to the right while opening the menu from the left
+  .body-push { position: relative; left: 0; overflow-x: hidden;
+    transition: left 0.3s ease-in; }
+  .body-push-right { left: 240px; } //when it's pushed
+
+  .navigation-main { height: $nav-height;
+      background: $nav-bg;
+      color: $nav-color; font-weight: bold;
+    .menu-toggle { display: block; cursor: pointer; }
+    ul { position: fixed; width: 240px; height: 100%; top: 0; left: -240px;
+        background: $nav-bg;
+        line-height: $nav-height;
+        z-index: 1000;
+        transition: left 0.3s ease-in;
+      li {
+        a { display: block; padding: 0 $ajy-spacing / 2;
+            color: $nav-color; text-decoration: none;
+            transition: background .15s ease-in; }
+        a:hover { background: lighten($nav-bg, 15); }
+      }
+      ul { position: static; height: auto; top: auto; left: auto; width: auto;
+          background: transparent; border-left: 1px dashed $midgray;
+          line-height: .85 * $nav-height; 
+          z-index: auto;
+        li { }
+      }
+    }
+    ul.menu-open { left: 0; }
+  }
+}
+ 
+@media only screen and (min-width: 600px) {
+  .navigation-main { @include grid-wrap(no);
+      padding: 0 $ajy-radius; //otherwise, my a background is not rounded. Alt, add rounded corners to a.
+      border-radius: $ajy-radius; @include pie-clearfix;
+    .menu-toggle { display: none; }
+    ul { width: auto; position: static; top: auto; left: auto; //override position fixed above
+        background: transparent; //override above
+      li { float: left; position: relative; }
+      li.has-sub-menu > a:after { content: '\f0d7'; padding-left: $ajy-spacing / 4;
+          font-family: 'FontAwesome'; } //use with fontawesome?
+      ul { float: left; position: absolute; top: $nav-height + 10px; left: 50%; width: $nav-sub-width; margin-left: $nav-sub-width * -0.5;
+          background: $nav-sub-bg; border-left: none;
+          color: $nav-sub-color;
+          clip: rect(1px, 1px, 1px, 1px); opacity: 0;
+          transition: opacity .15s ease-in;
+        li { float: none; line-height: 1.5em;
+          a { height: auto; padding: $ajy-spacing / 2; color: $nav-sub-color; }
+          a:hover { background: lighten($nav-sub-bg, 10); }
+        }
+        li.has-sub-menu > a:after { content: '\f0da'; font-family: 'FontAwesome'; } //use with font awesome
+        ul { left: 100%; top: 0; margin-left: 0; }
+      }
+    }
+    ul li:hover > ul { opacity: 1; clip: auto; }
+  }
+  
+  //overrides for display:table-cell navigation...
+  //MUST use w/ absolute positioning fix in js - cannot absolute position inside table cell
+  //keep the above styles and uncomment these to override where needed
+  //.navigation-main ul { display: table; width: 100%;
+  //  li { display: table-cell; float: none; text-align: center; }
+  //  li.has-sub-menu > div > a:after { content: "\25bc"; padding-left: $ajy-spacing / 2; }
+  //  ul { display: block;
+  //    li { display: block; }
+  //    li.has-sub-menu > div > a:after { content: "\25ba"; padding-left: $ajy-spacing / 2; }
+  //  }
+  //  li:hover > div > ul { opacity: 1; clip: auto; }
+  //}
+  
+  //having a triangle at center top of submenu, I also have two versions of this...
+  //both require a margin at the top of the nav.main-menu ul ul
+  
+  // 1) all CSS (no graphics)
+  .navigation-main ul {
+    ul:before { content: ''; width: 0; height: 0; position: absolute; top: -6px; left: 50%; margin-left: -6px; display: block;
+        border-left: 6px solid transparent; border-right: 6px solid transparent; border-bottom: 6px solid $nav-bg; }
+    //note on :after - a background color besides "transparent" must be declared for this to work in IE9.
+    ul:after { content: ''; width: 100%; height: 10px; position: absolute; top: -10px; left: 0; display: block;
+        background: #000000; background: rgba(0,0,0,0); opacity: 0; }
+    ul ul:before, ul ul:after { display: none; }
+  }
+  
+  // 2) including a graphic, is a little less complicated. Todo - check on width.
+  //.navigation-main ul ul:before { content: ""; display: block; position: absolute; top: -8px; height: 8px; width: 230px;
+  //   background: url('../graphics/arrow-menu.png') no-repeat center top; }
+} //end media query

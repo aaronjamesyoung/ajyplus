@@ -1,0 +1,84 @@
+@import "compass";
+@import "../foundation/sass/settings"; //include the Foundation settings file
+@import "ajy-settings"; //include this one after the foundation settings to override settings
+
+//customize the defaults in normalize instead of overwriting below.
+@import "reset/normalize";
+@import "font-awesome/font-awesome"; //font awesome icons
+
+* { box-sizing: border-box; }
+
+// ------- FOUNDATION COMPONENTS ---------------------------------------------------------------- //
+//over time, remove these as I develop my own components
+//uncomment as needed below, and move as needed
+
+@import "foundation/components/global"; // *always required for any of the below
+// @import "foundation/components/grid";
+// @import "foundation/components/visibility";
+// @import "foundation/components/block-grid";
+// @import "foundation/components/type";
+@import "foundation/components/buttons";
+@import "foundation/components/forms"; // *requires components/buttons
+@import "foundation/components/custom-forms"; // *requires components/buttons, components/forms
+// @import "foundation/components/button-groups"; // *requires components/buttons
+// @import "foundation/components/dropdown-buttons"; // *requires components/buttons
+// @import "foundation/components/split-buttons"; // *requires components/buttons
+// @import "foundation/components/flex-video";
+// @import "foundation/components/section";
+// @import "foundation/components/top-bar";  // *requires components/grid
+// @import "foundation/components/orbit";
+// @import "foundation/components/reveal";
+// @import "foundation/components/joyride";
+@import "foundation/components/clearing";
+// @import "foundation/components/alert-boxes";
+// @import "foundation/components/breadcrumbs";
+// @import "foundation/components/keystrokes";
+// @import "foundation/components/labels";
+// @import "foundation/components/inline-lists";
+// @import "foundation/components/pagination";
+// @import "foundation/components/panels";
+// @import "foundation/components/pricing-tables";
+// @import "foundation/components/progress-bars";
+// @import "foundation/components/side-nav";
+// @import "foundation/components/sub-nav";
+// @import "foundation/components/switch";
+// @import "foundation/components/magellan";
+// @import "foundation/components/tables";
+@import "foundation/components/thumbs";
+// @import "foundation/components/tooltips";
+// @import "foundation/components/dropdown";
+
+// ------- GENERAL STYLES ----------------------------------------------------------------------- //
+html { background: $white; }
+
+// ------- EXTRAS & COMPONENTS ------------------------------------------------------------------ //
+@import "components/grid";
+//@include "components/social-icons";
+@import "components/wordpress";
+@import "components/typography"; //general typography
+@import "components/screen-readers";
+
+// ------- LAYOUTS ------------------------------------------------------------------------------ //
+//use media queries as needed in each file.
+@import "layouts/header";
+@import "layouts/navigation";
+@import "layouts/content";
+@import "layouts/footer";
+
+//mainly for reference.... remove from this file?
+// ------- RESPONSIVE BREAKPOINTS --------------------------------------------------------------- //
+//mobile-first
+@media only screen {
+
+}
+
+// move styles up as appropriate... build above then override below
+@media only screen and (min-width: 500px) {
+
+}
+
+/* Apply styles to screens in landscape orientation */
+@media only screen and (orientation: landscape) {}
+
+/* Apply styles to screens in portrait orientation */
+@media only screen and (orientation: portrait) {}

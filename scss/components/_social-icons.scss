@@ -1,0 +1,52 @@
+// ------- AJY-SOCIAL ICONS -------------------------------------------------------------------- //
+//social icons, use with social-sprite. Example:
+
+//<div class="ajy-social">
+//  <a href="http://twitter.com/aaronjamesyoung" data-title="Twitter" class="twitter">Twitter</a>
+//  ... another link... etc...
+//</div>
+
+.ajy-social {
+  a { height: 32px; width: 32px; float: left; margin: 0 6px 0 0; position: relative; padding: 0;
+      background-image: url('../graphics/social-sprite.png');
+      text-indent: -999999px;
+      border-radius: 3px; box-shadow: 0 3px 5px $midgray; }
+  a:hover { background-color: transparent; }
+  a:hover:after { content: attr(data-title); position: absolute; top: 38px; left: 50%; margin-left: -50px; width: 100px; height: 30px; display: block;
+      background: rgba($black,0.5);
+      color: $white; text-indent: 0; line-height: 30px; text-align: center;
+      border-radius: $ajy-radius; }
+  
+  .delicious { background-position: left top; }
+  .facebook { background-position: -32px top; }
+  .flickr { background-position: -64px top; }
+  .forrst { background-position: -96px top; }
+  .github { background-position: -128px top; }
+  .googleplus { background-position: -160px top; }
+  .googleplusalt{ background-position: -192px top; }
+  .opteweb { background-position: -224px top; }
+  .paypal { background-position: -256px top; }
+  .rdio { background-position: -288px top; }
+  .rss { background-position: -320px top; }
+  .skype { background-position: -352px top; }
+  .twitter { background-position: -384px top; }
+  .vimeo { background-position: -416px top; }
+  .youtube { background-position: -348px top; }
+}
+
+// plusone this page
+// HTML: <div class="ajy-plusone"><g:plusone annotation="none"></g:plusone></div>
+// FOOTER HTML: <script type="text/javascript">
+//                (function() {
+//                  var po = document.createElement('script'); po.type = 'text/javascript';
+//                  po.async = true;
+//                  po.src = 'https://apis.google.com/js/plusone.js';
+//                  var s = document.getElementsByTagName('script')[0];
+//                  s.parentNode.insertBefore(po, s);
+//                })();
+//              </script>
+.ajy-plusone div { height: 32px !important; width: 32px !important; float: left; margin: 0 6px 0 0; position: relative; padding: 3px 0;
+    background-image: url('../graphics/social-sprite.png') !important; background-position: -160 top !important;
+    text-indent: -999999px;
+    border-radius: 3px; box-shadow: 0 3px 5px $midgray; }
+.ajy-plusone div iframe { opacity: 0 !important; }

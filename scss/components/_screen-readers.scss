@@ -1,0 +1,11 @@
+/* Text meant only for screen readers */
+.screen-reader-text {	position: absolute !important;
+	clip: rect(1px, 1px, 1px, 1px); }
+
+.screen-reader-text:hover,
+.screen-reader-text:active,
+.screen-reader-text:focus { display: block; width: auto; height: auto; left: 5px; top: 5px; padding: 15px 23px 14px;
+  background-color: $white;
+  color: $blue; font-size: remCalc(14px); font-weight: bold; line-height: normal; text-decoration: none;
+  clip: auto !important; z-index: 100000; /* above wp toolbar */
+  border-radius: 3px; box-shadow: 0 0 2px 2px rgba($black, 0.6); }

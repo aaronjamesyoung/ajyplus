@@ -1,0 +1,31 @@
+//Common Wordpress styles
+
+.alignright { float: right; margin: 0 0 $ajy-spacing $ajy-spacing; }
+.alignleft { float: left; margin: 0 $ajy-spacing $ajy-spacing 0; }
+.aligncenter { clear: both; display: block; margin: 0 auto; }
+.content-area img, .widget-area img { max-width: 100%; /* Fluid images for posts, comments, and widgets */ }
+.content-area img, .widget-area img, img[class*="align"], img[class*="wp-image-"] { height: auto; /* Make sure images
+  with WordPress-added height and width attributes are scaled correctly */ }
+.content-area img, .widget-area img, img.size-full { max-width: 100%; width: auto; /* Prevent stretching of full-size
+  images with height and width attributes in IE8 */ }
+.wp-caption { border: 1px solid #ccc; max-width: 100%; }
+.wp-caption.aligncenter, .wp-caption.alignleft, .wp-caption.alignright { margin-bottom: 1.5em; }
+.wp-caption img { display: block; margin: 1.2% auto 0; max-width: 98%; }
+.wp-caption-text { text-align: center; }
+.wp-caption .wp-caption-text { margin: 0.8075em 0; }
+
+//Galleries
+[data-clearing] li { margin-bottom: 10px; }
+.ajy-thumb { @include thumb(); }
+.clearing-assembled .clearing-container .carousel > ul li a.ajy-thumb { border: 0; box-shadow: none;
+  display: block; }
+
+//submit buttons
+input[type="submit"] { @include button(); }
+
+//Searchform
+.search-form { @include pie-clearfix;
+  .search-field { @include grid-col(75%, left, no); }
+  .search-submit { @include grid-col(25%, right, no); @include button($button-sml);
+    height: 28px; line-height: 26px; padding-top: 0; padding-bottom: 0; }
+}
