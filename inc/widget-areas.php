@@ -28,7 +28,7 @@ function ajy_widgets_init() {
   
   register_sidebar( array(
 		'name'          => __( 'Sidebar', 'ajy' ),
-		'id'            => 'sidebar-1-widget-area',
+		'id'            => 'sidebar-widget-area',
 		'before_widget' => '<aside id="%1$s" class="widget %2$s">',
 		'after_widget'  => '</aside>',
 		'before_title'  => '<h3 class="widget-title">',
