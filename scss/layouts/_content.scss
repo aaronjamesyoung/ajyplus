@@ -1,7 +1,7 @@
-.site-main { @include grid-wrap(no);
-  .site-content { @include grid-col(66.67%, left);
+.site-main { @include ajy-gridwrap(no);
+  .site-content { @include ajy-gridcol(66.67%, left);
       padding: 0 $ajy-spacing / 2 0 0;
   } //override padding from grid, default is padded both sides.
-  .widget-area { @include grid-col(33.33%, right);
+  .widget-area { @include ajy-gridcol(33.33%, right);
       padding: 0 0 0 $ajy-spacing / 2; } //override padding from grid
 }

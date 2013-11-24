@@ -47,6 +47,7 @@ jQuery(".touch .navigation-main li:has(ul)>a").click(function() {
 
 //** FOUNDATION COMPONENTS **//
 //for foundation stuff, see: http://foundation.zurb.com/docs/javascript.html
-//jQuery(document).foundation('clearing');
+//This line initializes everything. Add options and config inside here:
+jQuery(document).foundation();
 
 }); //end document ready

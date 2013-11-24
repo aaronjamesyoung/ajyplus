@@ -14,7 +14,7 @@
 .wp-caption-text { text-align: center; }
 .wp-caption .wp-caption-text { margin: 0.8075em 0; }
 
-//Galleries
+//Galleries using Foundation clearing
 [data-clearing] li { margin-bottom: 10px; }
 .ajy-thumb { @include thumb(); }
 .clearing-assembled .clearing-container .carousel > ul li a.ajy-thumb { border: 0; box-shadow: none;
@@ -25,7 +25,7 @@ input[type="submit"] { @include button(); }
 
 //Searchform
 .search-form { @include pie-clearfix;
-  .search-field { @include grid-col(75%, left, no); }
-  .search-submit { @include grid-col(25%, right, no); @include button($button-sml);
+  .search-field { @include ajy-gridcol(75%, left, no); }
+  .search-submit { @include ajy-gridcol(25%, right, no); @include button($button-sml);
     height: 28px; line-height: 26px; padding-top: 0; padding-bottom: 0; }
 }

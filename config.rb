@@ -1,4 +1,9 @@
-require 'zurb-foundation'
+#Foundation 4
+#require 'zurb-foundation'
+
+#Foundation 5
+add_import_path "foundation-5/bower_components/foundation/scss"
+
 require 'autoprefixer-rails'
 #require 'csso'
 

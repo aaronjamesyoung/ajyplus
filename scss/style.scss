@@ -1,62 +1,65 @@
 @import "compass";
-@import "../foundation/sass/settings"; //include the Foundation settings file
-@import "ajy-settings"; //include this one after the foundation settings to override settings
 
 //customize the defaults in normalize instead of overwriting below.
 @import "reset/normalize";
-@import "font-awesome/font-awesome"; //font awesome icons
 
 * { box-sizing: border-box; }
 
 // ------- FOUNDATION COMPONENTS ---------------------------------------------------------------- //
 //over time, remove these as I develop my own components
-//uncomment as needed below, and move as needed
+//comment as needed below, and move as needed
+//Note commas, semicolon at end
 
-@import "foundation/components/global"; // *always required for any of the below
-// @import "foundation/components/grid";
-// @import "foundation/components/visibility";
-// @import "foundation/components/block-grid";
-// @import "foundation/components/type";
-@import "foundation/components/buttons";
-@import "foundation/components/forms"; // *requires components/buttons
-@import "foundation/components/custom-forms"; // *requires components/buttons, components/forms
-// @import "foundation/components/button-groups"; // *requires components/buttons
-// @import "foundation/components/dropdown-buttons"; // *requires components/buttons
-// @import "foundation/components/split-buttons"; // *requires components/buttons
-// @import "foundation/components/flex-video";
-// @import "foundation/components/section";
-// @import "foundation/components/top-bar";  // *requires components/grid
-// @import "foundation/components/orbit";
-// @import "foundation/components/reveal";
-// @import "foundation/components/joyride";
-@import "foundation/components/clearing";
-// @import "foundation/components/alert-boxes";
-// @import "foundation/components/breadcrumbs";
-// @import "foundation/components/keystrokes";
-// @import "foundation/components/labels";
-// @import "foundation/components/inline-lists";
-// @import "foundation/components/pagination";
-// @import "foundation/components/panels";
-// @import "foundation/components/pricing-tables";
-// @import "foundation/components/progress-bars";
-// @import "foundation/components/side-nav";
-// @import "foundation/components/sub-nav";
-// @import "foundation/components/switch";
-// @import "foundation/components/magellan";
-// @import "foundation/components/tables";
-@import "foundation/components/thumbs";
-// @import "foundation/components/tooltips";
-// @import "foundation/components/dropdown";
+// Behold, here are all the Foundation components.
+@import
+  //"foundation/components/accordion",
+  //"foundation/components/alert-boxes",
+  //"foundation/components/block-grid",
+  //"foundation/components/breadcrumbs",
+  //"foundation/components/button-groups",
+  "foundation/components/buttons",
+  "foundation/components/clearing",
+  //"foundation/components/dropdown",
+  //"foundation/components/dropdown-buttons",
+  //"foundation/components/flex-video",
+  "foundation/components/forms",
+  //"foundation/components/grid",
+  //"foundation/components/inline-lists",
+  //"foundation/components/joyride",
+  //"foundation/components/keystrokes",
+  //"foundation/components/labels",
+  //"foundation/components/magellan",
+  "foundation/components/orbit",
+  //"foundation/components/pagination",
+  //"foundation/components/panels",
+  //"foundation/components/pricing-tables",
+  //"foundation/components/progress-bars",
+  //"foundation/components/reveal",
+  //"foundation/components/side-nav",
+  //"foundation/components/split-buttons",
+  //"foundation/components/sub-nav",
+  //"foundation/components/switch",
+  "foundation/components/tables",
+  //"foundation/components/tabs",
+  "foundation/components/thumbs";
+  //"foundation/components/tooltips",
+  //"foundation/components/offcanvas",
+  //"foundation/components/visibility";
+
+@import "ajy-settings"; //use instead of Foundation Settings file
+
+// ------- FONTS -------------------------------------------------------------------------------- //
+@import "font-awesome/font-awesome"; //font awesome icons
 
 // ------- GENERAL STYLES ----------------------------------------------------------------------- //
 html { background: $white; }
 
 // ------- EXTRAS & COMPONENTS ------------------------------------------------------------------ //
-@import "components/grid";
-//@include "components/social-icons";
-@import "components/wordpress";
-@import "components/typography"; //general typography
-@import "components/screen-readers";
+@import "components/grid"; //simpler "grid" system - define blocks at percentage width
+@import "components/social-icons"; //social media icons
+@import "components/wordpress"; //standard WP styles like .alignleft, gallery styles, etc.
+@import "components/typography"; //general typography... instead of Foundation typography (can remove this later)
+@import "components/screen-readers"; //screen reader classes
 
 // ------- LAYOUTS ------------------------------------------------------------------------------ //
 //use media queries as needed in each file.

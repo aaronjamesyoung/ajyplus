@@ -3,54 +3,8 @@ $base-font-size: 16px;
   $rem-base: $base-font-size;
   $em-base: $base-font-size;
 
-// ---- FUNCTIONS ------------------------------------------------------------------------------- //
-
-// It strips the unit of measure and returns it
-@function strip-unit($num) {
-  @return $num / ($num * 0 + 1);
-}
-
-// Converts "px" to "em" using the ($)em-base
-@function convert-to-em($value) {
-  $value: strip-unit($value) / strip-unit($em-base) * 1em;
-  @if ($value == 0em) { $value: 0; } // Turn 0em into 0
-  @return $value;
-}
-
-// Working in ems is annoying. Think in pixels by using this handy function, emCalc(#)
-// Just enter the number, no need to mention "px"
-@function emCalc($values...) {
-  $max: length($values); // Get the total number of parameters passed
-
-  // If there is only 1 parameter, then return it as an integer.
-  // This is done because a list can't be multiplied or divided even if it contains a single value
-  @if $max == 1 { @return convert-to-em(nth($values, 1)); }
-
-  $emValues: (); // This will eventually store the converted $values in a list
-  @for $i from 1 through $max {
-    $emValues: append($emValues, convert-to-em(nth($values, $i)));
-  }
-  @return $emValues;
-}
-
-// Converts "px" to "rem" using the ($)rem-base
-@function convert-to-rem($value) {
-  $value: strip-unit($value) / strip-unit($rem-base) * 1rem;
-  @if ($value == 0rem) { $value: 0; } // Turn 0em into 0
-  @return $value;
-}
-
-@function remCalc($values...) {
-  $max: length($values);
-  @if $max == 1 { @return convert-to-rem(nth($values, 1)); }
-  $remValues: ();
-  @for $i from 1 through $max {
-    $remValues: append($remValues, convert-to-rem(nth($values, $i)));
-  }
-  @return $remValues;
-}
-
 // ---- PROJECT VARIABLES ----------------------------------------------------------------------- //
+//am in process of prefixing my variables with "ajy-" to avoid confusing them with Foundation variables (except colors)
 
 //grayscale colors - from base16 ocean
 $white: #eff1f5;
@@ -71,11 +25,11 @@ $brown: #ab7967;
 
 //spacing + roundness
 $ajy-spacing: 24px;
-$ajy-radius: 4px;
+$global-radius: 4px;
 
 //type sizes
 //see base font size up above
-$base-line-height: remCalc(24px); // = 1.5rem
+$base-line-height: rem-calc(24px); // = 1.5rem
 
 $body-font-family: 'Liberation Sans', sans-serif;
 $body-font-color: $darkgray;
@@ -85,13 +39,15 @@ $header-font-weight: bold;
 $header-font-color: $black;
 $h6-font-color: $darkgray;
 
-//$h1-font-size: remCalc(32px); //See http://www.w3.org/TR/CSS21/sample.html, that's where I got h1-h3 sizes from
-//$h2-font-size: remCalc(24px);
-//$h3-font-size: remCalc(19px);
-//$h4-font-size: 1rem;
-//$h5-font-size: 1rem; //w3 recommends smaller sizes for h5 and h6 but I kept them at one rem and changed font color.
-//$h6-font-size: 1rem;
+//Foundation Defaults
+//$h1-font-size: rem-calc(44) !default;
+//$h2-font-size: rem-calc(37) !default;
+//$h3-font-size: rem-calc(27) !default;
+//$h4-font-size: rem-calc(23) !default;
+//$h5-font-size: rem-calc(18) !default;
+//$h6-font-size: 1rem !default;
 
+//Major Third scale
 $h1-font-size: 2.074rem;
 $h2-font-size: 1.728rem;
 $h3-font-size: 1.44rem;
@@ -102,45 +58,49 @@ $h6-font-size: 1rem;
 $blockquote-color: $midgray;
 
 //max-width
-$row-width: emCalc(1000px); 
+$row-width: rem-calc(1000);
+$column-gutter: $ajy-spacing;
 
 //Main Menu
-$nav-height: 50px;
-$nav-bg: $darkgray;
-$nav-color: $lightgray;
-$nav-sub-width: 200px;
-$nav-sub-bg: $darkgray;
-$nav-sub-color: $lightgray;
+$ajy-navheight: 50px;
+$ajy-navbg: $darkgray;
+$ajy-navcolor: $lightgray;
+$ajy-nav-subwidth: 200px;
+$ajy-nav-subbg: $darkgray;
+$ajy-nav-subcolor: $lightgray;
 
 //Aaron note... override for Foundation variables (colors)
 $primary-color: $blue;
 $secondary-color: $lightgray;
 $alert-color: $red;
 $success-color: $green;
+$warning-color: $orange;
+$info-color: $cyan;
 
-//Override Foundation variables
-$include-html-classes: false;
-$include-print-styles: false;
-$include-html-global-classes: $include-html-classes;
-$include-html-inline-list-classes: $include-html-classes;
-$include-html-type-classes: $include-html-classes;
-$include-html-grid-classes: $include-html-classes;
-$include-html-visibility-classes: $include-html-classes;
-$include-html-button-classes: true;
-$include-html-form-classes: true;
-$include-html-custom-form-classes: $include-html-classes;
-$include-html-media-classes: $include-html-classes;
-$include-html-section-classes: $include-html-classes;
-$include-html-orbit-classes: $include-html-classes;
-$include-html-reveal-classes: $include-html-classes;
-$include-html-joyride-classes: $include-html-classes;
-$include-html-clearing-classes: $include-html-classes;
-$include-html-alert-classes: $include-html-classes;
-$include-html-nav-classes: $include-html-classes;
-$include-html-top-bar-classes: $include-html-classes;
-$include-html-label-classes: $include-html-classes;
-$include-html-panel-classes: $include-html-classes;
-$include-html-pricing-classes: $include-html-classes;
-$include-html-progress-classes: $include-html-classes;
-$include-html-magellan-classes: $include-html-classes;
-$include-html-tooltip-classes: $include-html-classes;
+// Override Foundation variables: Add section from foundation-5/bower_components/foundation/scss/foundation/_settings.scss
+// Then uncomment and customize the variables as needed.
+
+// -- EXAMPLE - Panels settings from Foundation settings -- //
+// Panels
+
+// $include-html-panel-classes: $include-html-classes;
+
+// We use these to control the background and border styles
+$panel-bg: $lightgray;
+// $panel-border-style: solid;
+// $panel-border-size: 1px;
+
+// We use this % to control how much we darken things on hover
+// $panel-function-factor: 10%;
+// $panel-border-color: darken($panel-bg, $panel-function-factor);
+
+// We use these to set default inner padding and bottom margin
+// $panel-margin-bottom: rem-calc(20);
+// $panel-padding: rem-calc(20);
+
+// We use these to set default font colors
+$panel-font-color: $darkgray;
+$panel-font-color-alt: $white;
+
+// $panel-header-adjust: true;
+// $callout-panel-link-color: $primary-color;

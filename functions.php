@@ -46,35 +46,45 @@ add_action( 'after_setup_theme', 'ajy_setup' );
 // 2. Enqueue Scripts and Styles
 
 function ajy_scripts() {
-  //because I'm not familiar enough with this yet...
+  //Note:
   //wp_enqueue_style( $handle, $src, $deps, $ver, $media );
   //wp_enqueue_script( $handle, $src, $deps, $ver, $in_footer );
   
-	wp_enqueue_style( 'ajy-style', get_template_directory_uri() . '/css/style.css', false, '20130720', 'screen' );
-  //aaron look - _s script
-	wp_enqueue_script( 'ajy-skip-link-focus-fix', get_template_directory_uri() . '/js/skip-link-focus-fix.js', array(), '20130720', true );
+	wp_enqueue_style( 'ajy-style', get_template_directory_uri() . '/css/style.css', false, '20131123', 'screen' );
   //added by aaron
-  wp_enqueue_script( 'ajy-modernizr', get_template_directory_uri() . '/js/ajy.modernizr.js', array('jquery'), '20130720', false ); //modernizr
+  wp_enqueue_script( 'ajy-modernizr', get_template_directory_uri() . '/js/ajy.modernizr.js', array('jquery'), '20131123', false ); //modernizr
+
   //foundation scripts - uncomment as needed.
-  wp_enqueue_script( 'ajy-foundation', get_template_directory_uri() . '/foundation/javascripts/foundation/foundation.js', array('jquery'), '20130720', true ); //required for any of the below
-  //wp_enqueue_script( 'ajy-foundation-placeholder', get_template_directory_uri() . '/foundation/javascripts/foundation/foundation.placeholder.js', array('jquery','ajy-foundation'), '20130720', true );
-  wp_enqueue_script( 'ajy-foundation-forms', get_template_directory_uri() . '/foundation/javascripts/foundation/foundation.forms.js', array('jquery','ajy-foundation'), '20130720', true );
-  //wp_enqueue_script( 'ajy-foundation-section', get_template_directory_uri() . '/foundation/javascripts/foundation/foundation.section.js', array('jquery','ajy-foundation'), '20130720', true );
-  //wp_enqueue_script( 'ajy-foundation-reveal', get_template_directory_uri() . '/foundation/javascripts/foundation/foundation.reveal.js', array('jquery','ajy-foundation'), '20130720', true );
-  //wp_enqueue_script( 'ajy-foundation-tooltips', get_template_directory_uri() . '/foundation/javascripts/foundation/foundation.tooltips.js', array('jquery','ajy-foundation'), '20130720', true );
-  //wp_enqueue_script( 'ajy-foundation-joyride', get_template_directory_uri() . '/foundation/javascripts/foundation/foundation.joyride.js', array('jquery','ajy-foundation'), '20130720', true );
-  //wp_enqueue_script( 'ajy-foundation-orbit', get_template_directory_uri() . '/foundation/javascripts/foundation/foundation.orbit.js', array('jquery','ajy-foundation'), '20130720', true );
-  //wp_enqueue_script( 'ajy-foundation-alerts', get_template_directory_uri() . '/foundation/javascripts/foundation/foundation.alerts.js', array('jquery','ajy-foundation'), '20130720', true );
-  //wp_enqueue_script( 'ajy-foundation-cookie', get_template_directory_uri() . '/foundation/javascripts/foundation/foundation.cookie.js', array('jquery','ajy-foundation'), '20130720', true );
-  //wp_enqueue_script( 'ajy-foundation-dropdown', get_template_directory_uri() . '/foundation/javascripts/foundation/foundation.dropdown.js', array('jquery','ajy-foundation'), '20130720', true );
-  //wp_enqueue_script( 'ajy-foundation-topbar', get_template_directory_uri() . '/foundation/javascripts/foundation/foundation.topbar.js', array('jquery','ajy-foundation'), '20130720', true );
-  //wp_enqueue_script( 'ajy-foundation-clearing', get_template_directory_uri() . '/foundation/javascripts/foundation/foundation.clearing.js', array('jquery','ajy-foundation'), '20130720', true );
-  //wp_enqueue_script( 'ajy-foundation-magellan', get_template_directory_uri() . '/foundation/javascripts/foundation/foundation.magellan.js', array('jquery','ajy-foundation'), '20130720', true );
-  //wp_enqueue_script( 'ajy-foundation-interchange', get_template_directory_uri() . '/foundation/javascripts/foundation/foundation.interchange.js', array('jquery','ajy-foundation'), '20130720', true );
-  //wp_enqueue_script( 'ajy-foundation-abide', get_template_directory_uri() . '/foundation/javascripts/foundation/foundation.abide.js', array('jquery','ajy-foundation'), '20130720', true );
+  //EITHER: just use this script...
+  wp_enqueue_script( 'ajy-foundation-complete', get_template_directory_uri() . '/foundation-5/bower_components/foundation/js/foundation.min.js', array('jquery'), '20131123', true );
   
+  // ...OR: Customize the imports here
+  //First one is required:
+  //wp_enqueue_script( 'ajy-foundation', get_template_directory_uri() . '/foundation-5/bower_components/foundation/js/foundation/foundation.js', array('jquery'), '20131123', true ); //required for any of the below
+  //Pick and choose these as needed
+  //wp_enqueue_script( 'ajy-foundation-abide', get_template_directory_uri() . '/foundation-5/bower_components/foundation/js/foundation/foundation.abide.js', array('jquery','ajy-foundation'), '20131123', true );
+  //wp_enqueue_script( 'ajy-foundation-accordion', get_template_directory_uri() . '/foundation-5/bower_components/foundation/js/foundation/foundation.accordion.js', array('jquery','ajy-foundation'), '20131123', true );
+  //wp_enqueue_script( 'ajy-foundation-alert', get_template_directory_uri() . '/foundation-5/bower_components/foundation/js/foundation/foundation.alert.js', array('jquery','ajy-foundation'), '20131123', true );
+  //wp_enqueue_script( 'ajy-foundation-clearing', get_template_directory_uri() . '/foundation-5/bower_components/foundation/js/foundation/foundation.clearing.js', array('jquery','ajy-foundation'), '20131123', true );
+  //wp_enqueue_script( 'ajy-foundation-dropdown', get_template_directory_uri() . '/foundation-5/bower_components/foundation/js/foundation/foundation.dropdown.js', array('jquery','ajy-foundation'), '20131123', true );
+  //wp_enqueue_script( 'ajy-foundation-interchange', get_template_directory_uri() . '/foundation-5/bower_components/foundation/js/foundation/foundation.interchange.js', array('jquery','ajy-foundation'), '20131123', true );
+  //wp_enqueue_script( 'ajy-foundation-joyride', get_template_directory_uri() . '/foundation-5/bower_components/foundation/js/foundation/foundation.joyride.js', array('jquery','ajy-foundation'), '20131123', true );
+  //wp_enqueue_script( 'ajy-foundation-magellan', get_template_directory_uri() . '/foundation-5/bower_components/foundation/js/foundation/foundation.magellan.js', array('jquery','ajy-foundation'), '20131123', true );
+  //wp_enqueue_script( 'ajy-foundation-offcanvas', get_template_directory_uri() . '/foundation-5/bower_components/foundation/js/foundation/foundation.offcanvas.js', array('jquery','ajy-foundation'), '20131123', true );
+  //wp_enqueue_script( 'ajy-foundation-orbit', get_template_directory_uri() . '/foundation-5/bower_components/foundation/js/foundation/foundation.orbit.js', array('jquery','ajy-foundation'), '20131123', true );
+  //wp_enqueue_script( 'ajy-foundation-reveal', get_template_directory_uri() . '/foundation-5/bower_components/foundation/js/foundation/foundation.reveal.js', array('jquery','ajy-foundation'), '20131123', true );
+  //wp_enqueue_script( 'ajy-foundation-tab', get_template_directory_uri() . '/foundation-5/bower_components/foundation/js/foundation/foundation.tab.js', array('jquery','ajy-foundation'), '20131123', true );
+  //wp_enqueue_script( 'ajy-foundation-tooltip', get_template_directory_uri() . '/foundation-5/bower_components/foundation/js/foundation/foundation.tooltip.js', array('jquery','ajy-foundation'), '20131123', true );
+  //wp_enqueue_script( 'ajy-foundation-topbar', get_template_directory_uri() . '/foundation-5/bower_components/foundation/js/foundation/foundation.topbar.js', array('jquery','ajy-foundation'), '20131123', true );
+  
+  //additional foundation scripts
+  //Cookie script... optional with Joyride
+  //wp_enqueue_script( 'ajy-foundation-jquery-cookie', get_template_directory_uri() . '/foundation-5/bower_components/foundation/js/vendor/jquery.cookie.js', array('jquery','ajy-foundation','ajy-foundation-joyride'), '20131123', true );
+  
+
+
   //my main script
-  wp_enqueue_script( 'ajy', get_template_directory_uri() . '/js/ajy.js', array('jquery', 'ajy-modernizr'), '20130720', false );
+  wp_enqueue_script( 'ajy', get_template_directory_uri() . '/js/ajy.js', array('jquery', 'ajy-modernizr'), '20131123', true ); //move this to the footer
 
   if ( is_singular() && comments_open() && get_option( 'thread_comments' ) ) {
 		wp_enqueue_script( 'comment-reply' );
