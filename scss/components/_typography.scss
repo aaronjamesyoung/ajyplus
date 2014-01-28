@@ -17,8 +17,20 @@ h6 { font-style: italic; }
 //links
 a { color: $blue; text-decoration: none; }
 a:hover { color: darken($blue, 25); }
-a:visited { color: $purple; }
-a:active { color: $red; }
+//a:visited { color: $purple; }
+//a:active { color: $red; }
+
+//sometimes people want links to open in a new tab. General rule for that.
+a[target="_blank"] { display: inline-block; position: relative; }
+a[target="_blank"]:after { content: '\f08e'; padding-left: 6px;
+    font-family: 'FontAwesome'; font-weight: normal; }
+a[target="_blank"]:before { content: 'Opens in a new window';
+    display: block; padding: 4px 6px; position: absolute; bottom: -30px; left: 50%;
+    background: rgba($black, 0.8);
+    color: $white; font-weight: normal; white-space: nowrap; font-size: 0.825em;
+    transform: translateX(-50%); opacity: 0; transition: opacity 0.15s ease-in; border-radius: 4px;
+    clip: rect(1px 1px 1px 1px); pointer-events: none; }
+a[target="_blank"]:hover:before { opacity: 1; clip: auto; }
 
 //lists
 ul, ol { margin: 0 0 $ajy-spacing 0; padding: 0; list-style-position: inside; }

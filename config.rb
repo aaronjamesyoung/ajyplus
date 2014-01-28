@@ -34,8 +34,8 @@ output_style = :compact
 on_stylesheet_saved do |file|
   css = File.read(file)
   File.open(file, 'w') do |io|
-    #io << Csso.optimize( AutoprefixerRails.compile(css) )
-    io << AutoprefixerRails.compile(css)
+    #io << Csso.optimize( AutoprefixerRails.process(css) )
+    io << AutoprefixerRails.process(css)
   end
 end
 

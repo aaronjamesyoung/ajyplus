@@ -27,9 +27,12 @@ $brown: #ab7967;
 $ajy-spacing: 24px;
 $global-radius: 4px;
 
+//body background color
+$body-bg: $white;
+
 //type sizes
 //see base font size up above
-$base-line-height: rem-calc(24px); // = 1.5rem
+$base-line-height: 1.5rem;
 
 $body-font-family: 'Liberation Sans', sans-serif;
 $body-font-color: $darkgray;
@@ -58,7 +61,7 @@ $h6-font-size: 1rem;
 $blockquote-color: $midgray;
 
 //max-width
-$row-width: rem-calc(1000);
+$row-width: 62.5rem;
 $column-gutter: $ajy-spacing;
 
 //Main Menu

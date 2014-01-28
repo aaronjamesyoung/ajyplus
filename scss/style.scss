@@ -2,6 +2,7 @@
 
 //customize the defaults in normalize instead of overwriting below.
 @import "reset/normalize";
+@import "ajy-settings"; //use instead of Foundation Settings file
 
 * { box-sizing: border-box; }
 
@@ -45,8 +46,6 @@
   //"foundation/components/tooltips",
   //"foundation/components/offcanvas",
   //"foundation/components/visibility";
-
-@import "ajy-settings"; //use instead of Foundation Settings file
 
 // ------- FONTS -------------------------------------------------------------------------------- //
 @import "font-awesome/font-awesome"; //font awesome icons

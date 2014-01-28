@@ -39,7 +39,7 @@
         background: transparent; //override above
       li { float: left; position: relative; }
       li.has-sub-menu > a:after { content: '\f0d7'; padding-left: $ajy-spacing / 4;
-          font-family: 'FontAwesome'; } //use with fontawesome?
+          font-family: 'FontAwesome'; line-height: $ajy-navheight - 1px; } //use with fontawesome?
       ul { float: left; position: absolute; top: $ajy-navheight + 10px; left: 50%; width: $ajy-nav-subwidth; margin-left: $ajy-nav-subwidth * -0.5;
           background: $ajy-nav-subbg; border-left: none;
           color: $ajy-nav-subcolor;
