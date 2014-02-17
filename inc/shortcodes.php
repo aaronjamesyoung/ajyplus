@@ -114,8 +114,14 @@ function ajy_gallery_shortcode($attr) {
     //this part is mod aaron
     $thumblink = wp_get_attachment_image_src( $id, 'thumbnail', false );
     $biglink = wp_get_attachment_image_src( $id, 'large', false );
-    $link = '<a href="'.$biglink[0].'" class="ajy-thumb"><img src="'.$thumblink[0].'" /></a>';
     
+    //show a caption
+    $captionlink = '';
+    if(trim($attachment->post_excerpt)) {
+      $captionlink = ' data-caption="'.wptexturize($attachment->post_excerpt).'"';
+    }
+    
+    $link = '<a href="'.$biglink[0].'" class="ajy-thumb"><img'.$captionlink.' src="'.$thumblink[0].'" /></a>';
     $output .= "<{$itemtag} class='gallery-item'>";
     $output .="$link";
     $output .= "</{$itemtag}>";
